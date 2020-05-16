@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct DataArray: Codable {
+struct Countries: Codable {
     var Countries: [CountryData]
 }

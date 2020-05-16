@@ -18,12 +18,73 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="World Data" id="0Qe-3l-W6H">
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="smL-aQ-T1O"/>
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="smL-aQ-T1O">
+                            <connections>
+                                <segue destination="7mi-TU-mDI" kind="show" id="Fh3-qT-iEh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2868.115942028986" y="113.83928571428571"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="otk-At-sIj">
+            <objects>
+                <tableViewController id="7mi-TU-mDI" customClass="SearchViewController" customModule="COVID_Live" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KTx-tr-OFk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryCell" textLabel="Srw-Vd-PU1" style="IBUITableViewCellStyleDefault" id="TT4-UP-nlk">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TT4-UP-nlk" id="h4n-bE-Raf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Srw-Vd-PU1">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7mi-TU-mDI" id="cod-A9-sSO"/>
+                            <outlet property="delegate" destination="7mi-TU-mDI" id="Q1A-VE-dbt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="YU9-fY-oO2"/>
+                    <connections>
+                        <segue destination="8Am-v6-xc7" kind="show" identifier="viewSearchDetail" id="enw-87-Wng"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LyF-5H-lGy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3869.5652173913045" y="119.86607142857142"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="UtP-px-5EK">
+            <objects>
+                <viewController id="8Am-v6-xc7" customClass="DetailViewController" customModule="COVID_Live" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RXn-Ic-QYZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="STd-6i-qfn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T1F-d8-t67"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxX-I6-f1n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4832" y="122"/>
         </scene>
         <!--My Locations-->
         <scene sceneID="FTP-vv-aaW">
@@ -36,8 +97,15 @@
                         <viewLayoutGuide key="safeArea" id="jk2-iZ-4Ff"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Locations" id="cmn-d6-J10">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="6fl-xH-j6y"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="6fl-xH-j6y">
+                            <connections>
+                                <segue destination="7mi-TU-mDI" kind="show" id="Zz3-xS-uKK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vgD-io-e7t" kind="show" identifier="viewLocationDetail" id="7bP-gs-CiH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYI-vz-7oa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,6 +121,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ttl-tc-Sus"/>
                     </view>
+                    <navigationItem key="navigationItem" id="svg-5E-97N"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dou-8G-XXs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,6 +134,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="World Data" id="sqf-8y-4So"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BP7-tb-YVT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -116,6 +186,9 @@
             <point key="canvasLocation" x="1957.9710144927537" y="113.83928571428571"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zz3-xS-uKK"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
