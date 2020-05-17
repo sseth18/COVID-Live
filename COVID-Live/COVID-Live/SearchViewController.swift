@@ -35,7 +35,6 @@ class SearchViewController: UITableViewController {
     @objc func fetchJSON() {
         let urlString: String
         urlString = "https://api.covid19api.com/summary"
-        
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
                 parse(json: data)
