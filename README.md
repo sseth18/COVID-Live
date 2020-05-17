@@ -9,7 +9,10 @@ An interactive app that displays live data regarding coronavirus statistics all 
    
    Used to implement the search functionality
 
-
 2. https://pixabay.com/vectors/coronavirus-labeled-symbol-corona-5062543/
    
    Logo image
+
+3. https://makeappicon.com
+   
+   Site used to convert the logo image into a set of app icons
