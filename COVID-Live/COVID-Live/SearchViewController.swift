@@ -13,6 +13,7 @@ class SearchViewController: UITableViewController {
     var countryData = [CountryData]()
     var filteredCountries: [CountryData] = []
     var defaults = UserDefaults.standard
+    var json: Data?
     
     // initializes tableViewController as the place to display the results of the search
     let searchController = UISearchController(searchResultsController: nil)
@@ -29,20 +30,8 @@ class SearchViewController: UITableViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        performSelector(inBackground: #selector(fetchJSON), with: nil)
-    }
-    
-    @objc func fetchJSON() {
-        let urlString: String
-        urlString = "https://api.covid19api.com/summary"
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                parse(json: data)
-                return
-            }
-        }
-        
-        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+        json = defaults.object(forKey: "dataSet") as! Data
+        parse(json: json!)
     }
 
     func parse(json: Data) {
@@ -57,7 +46,7 @@ class SearchViewController: UITableViewController {
     }
     
     @objc func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Loading Error", message: "There was a problem loading the data; please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
@@ -84,6 +73,7 @@ class SearchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defaults.set(searchController.searchBar.text!, forKey: "searchText")
         defaults.set(indexPath.row, forKey: "selectedCountryIndex")
         performSegue(withIdentifier: "viewSearchDetail", sender: self)
     }

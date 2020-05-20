@@ -12,6 +12,7 @@ import Foundation
 
 class GlobalDataViewController: UIViewController {
     var globalCasesData: GlobalData?
+    var defaults = UserDefaults.standard
     
     @IBOutlet weak var totalCases: UILabel!
     @IBOutlet weak var newCases: UILabel!
@@ -71,10 +72,12 @@ class GlobalDataViewController: UIViewController {
         } else {
             performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
+        
+        defaults.set(json, forKey: "dataSet")
     }
     
     @objc func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the data; please check your connection and try again.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Loading Error", message: "There was a problem loading the data; please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
