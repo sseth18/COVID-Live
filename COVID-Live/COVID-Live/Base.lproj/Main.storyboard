@@ -517,11 +517,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Locations" id="43v-eJ-1yZ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="5rq-JO-wwd">
-                            <connections>
-                                <action selector="editButtonTapped:" destination="d0x-mV-QWg" id="YTX-iZ-wGz"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="bA9-MK-bC6">
                             <connections>
                                 <segue destination="7mi-TU-mDI" kind="show" id="xJv-7l-K5j"/>

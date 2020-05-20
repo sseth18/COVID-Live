@@ -34,7 +34,7 @@ class CustomLocationsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        viewDidLoad()
     }
     
     func parse(json: Data) {
@@ -107,8 +107,19 @@ class CustomLocationsTableViewController: UITableViewController {
         return .none
     }
     
-    @IBAction func editButtonTapped(_ sender: Any) {
-        let tableViewEditingMode = tableView.isEditing
-        tableView.setEditing(!tableViewEditingMode, animated: true)
+    // Implements the slide to delete functionality
+    // Src: https://medium.com/ios-os-x-development/enable-slide-to-delete-in-uitableview-9311653dfe2
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            self.customLocations.remove(at: indexPath.row)
+            self.countryIndices!.remove(at: indexPath.row)
+            self.defaults.set(self.countryIndices, forKey: "customCountryIndices")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+        
+        return [delete]
     }
 }
