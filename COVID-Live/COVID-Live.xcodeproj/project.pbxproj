@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89A262442475B2FA009DB5AA /* CustomLocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A262432475B2FA009DB5AA /* CustomLocationsTableViewController.swift */; };
+		89A262462475B84F009DB5AA /* CustomLocDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A262452475B84F009DB5AA /* CustomLocDetailViewController.swift */; };
+		89A262482475BD2B009DB5AA /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A262472475BD2B009DB5AA /* LocationTableViewCell.swift */; };
 		89B80D032468C16100EACD12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B80D022468C16100EACD12 /* AppDelegate.swift */; };
 		89B80D052468C16100EACD12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B80D042468C16100EACD12 /* SceneDelegate.swift */; };
 		89B80D072468C16100EACD12 /* GlobalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B80D062468C16100EACD12 /* GlobalDataViewController.swift */; };
@@ -14,7 +17,6 @@
 		89B80D0C2468C16600EACD12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B80D0B2468C16600EACD12 /* Assets.xcassets */; };
 		89B80D0F2468C16600EACD12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B80D0D2468C16600EACD12 /* LaunchScreen.storyboard */; };
 		89C2AE1324705A740001BBF1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2AE1224705A740001BBF1 /* SearchViewController.swift */; };
-		89DF452B2468C9F900B72647 /* CustomLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DF452A2468C9F900B72647 /* CustomLocationsViewController.swift */; };
 		89DF452D2468CA1400B72647 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DF452C2468CA1400B72647 /* DetailViewController.swift */; };
 		89DF452F2468DF1D00B72647 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DF452E2468DF1D00B72647 /* GlobalData.swift */; };
 		89DF45312468E2C000B72647 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DF45302468E2C000B72647 /* Countries.swift */; };
@@ -23,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89A262432475B2FA009DB5AA /* CustomLocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationsTableViewController.swift; sourceTree = "<group>"; };
+		89A262452475B84F009DB5AA /* CustomLocDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocDetailViewController.swift; sourceTree = "<group>"; };
+		89A262472475BD2B009DB5AA /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		89B80CFF2468C16100EACD12 /* COVID-Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-Live.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B80D022468C16100EACD12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B80D042468C16100EACD12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +37,6 @@
 		89B80D0E2468C16600EACD12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89B80D102468C16600EACD12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89C2AE1224705A740001BBF1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		89DF452A2468C9F900B72647 /* CustomLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationsViewController.swift; sourceTree = "<group>"; };
 		89DF452C2468CA1400B72647 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89DF452E2468DF1D00B72647 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		89DF45302468E2C000B72647 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
@@ -70,7 +74,6 @@
 		89B80D012468C16100EACD12 /* COVID-Live */ = {
 			isa = PBXGroup;
 			children = (
-				89DF452A2468C9F900B72647 /* CustomLocationsViewController.swift */,
 				89B80D022468C16100EACD12 /* AppDelegate.swift */,
 				89B80D042468C16100EACD12 /* SceneDelegate.swift */,
 				89B80D062468C16100EACD12 /* GlobalDataViewController.swift */,
@@ -79,6 +82,9 @@
 				89DF45322468E80000B72647 /* CountryData.swift */,
 				89DF452E2468DF1D00B72647 /* GlobalData.swift */,
 				89B80D082468C16100EACD12 /* Main.storyboard */,
+				89A262472475BD2B009DB5AA /* LocationTableViewCell.swift */,
+				89A262452475B84F009DB5AA /* CustomLocDetailViewController.swift */,
+				89A262432475B2FA009DB5AA /* CustomLocationsTableViewController.swift */,
 				89C2AE1224705A740001BBF1 /* SearchViewController.swift */,
 				89DF452C2468CA1400B72647 /* DetailViewController.swift */,
 				89B80D0B2468C16600EACD12 /* Assets.xcassets */,
@@ -160,11 +166,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C2AE1324705A740001BBF1 /* SearchViewController.swift in Sources */,
+				89A262462475B84F009DB5AA /* CustomLocDetailViewController.swift in Sources */,
+				89A262442475B2FA009DB5AA /* CustomLocationsTableViewController.swift in Sources */,
 				89DF45312468E2C000B72647 /* Countries.swift in Sources */,
 				89DF45352468EA4B00B72647 /* GlobalDataSet.swift in Sources */,
 				89DF452F2468DF1D00B72647 /* GlobalData.swift in Sources */,
+				89A262482475BD2B009DB5AA /* LocationTableViewCell.swift in Sources */,
 				89DF45332468E80000B72647 /* CountryData.swift in Sources */,
-				89DF452B2468C9F900B72647 /* CustomLocationsViewController.swift in Sources */,
 				89B80D072468C16100EACD12 /* GlobalDataViewController.swift in Sources */,
 				89DF452D2468CA1400B72647 /* DetailViewController.swift in Sources */,
 				89B80D032468C16100EACD12 /* AppDelegate.swift in Sources */,

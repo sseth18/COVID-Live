@@ -1,14 +1,14 @@
 //
-//  DetailViewController.swift
+//  CustomLocDetailViewController.swift
 //  COVID-Live
 //
-//  Created by Samar Seth on 5/10/20.
+//  Created by Samar Seth on 5/20/20.
 //  Copyright © 2020 Samar Seth. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class CustomLocDetailViewController: UIViewController {
     var countryData = [CountryData]()
     var defaults = UserDefaults.standard
     var json: Data?
@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         
         json = (defaults.object(forKey: "dataSet") as! Data)
         parse(json: json!)
-        countryIndex = defaults.integer(forKey: "selectedCountryIndex")
+        countryIndex = defaults.integer(forKey: "selectedCustomLocation")
         country = countryData[countryIndex!]
         populateData()
     }
@@ -78,16 +78,5 @@ class DetailViewController: UIViewController {
         let ac = UIAlertController(title: "Loading Error", message: "There was a problem loading the data; please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
-    }
-    
-    @IBAction func addToCustomLocations(_ sender: Any) {
-        if let indices: [Int] = defaults.array(forKey: "customCountryIndices") as! [Int]? {
-            customLocations = indices
-        } else {
-            customLocations = []
-        }
-        
-        customLocations!.append(countryIndex!)
-        defaults.set(customLocations, forKey: "customCountryIndices")
     }
 }

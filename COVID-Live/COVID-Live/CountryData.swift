@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CountryData: Codable {
+struct CountryData: Codable, Equatable {
     var Country: String
     var NewConfirmed: Int
     var TotalConfirmed: Int
