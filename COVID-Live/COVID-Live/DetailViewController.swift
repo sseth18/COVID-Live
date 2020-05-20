@@ -88,6 +88,11 @@ class DetailViewController: UIViewController {
         }
         
         customLocations!.append(countryIndex!)
+        for i in customLocations! {
+            print(i)
+        }
         defaults.set(customLocations, forKey: "customCountryIndices")
+        
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

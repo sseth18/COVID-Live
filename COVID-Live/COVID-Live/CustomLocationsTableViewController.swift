@@ -28,13 +28,22 @@ class CustomLocationsTableViewController: UITableViewController {
         if let indices = defaults.array(forKey: "customCountryIndices") as! [Int]? {
             countryIndices = indices
             for index in countryIndices! {
+                print(index)
                 customLocations.append(countryData[index])
             }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        viewDidLoad()
+        customLocations = []
+        if let indices = defaults.array(forKey: "customCountryIndices") as! [Int]? {
+            countryIndices = indices
+            for index in countryIndices! {
+                print(index)
+                customLocations.append(countryData[index])
+            }
+        }
+        tableView.reloadData()
     }
     
     func parse(json: Data) {
@@ -92,34 +101,16 @@ class CustomLocationsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let movedCountry = customLocations.remove(at: fromIndexPath.row)
+        let movedCountry = customLocations[fromIndexPath.row]
+        customLocations.remove(at: fromIndexPath.row)
         customLocations.insert(movedCountry, at: to.row)
         
-        let movedCountryIndex = countryIndices!.remove(at: fromIndexPath.row)
+        let movedCountryIndex = countryIndices![fromIndexPath.row]
+        countryIndices!.remove(at: fromIndexPath.row)
         countryIndices!.insert(movedCountryIndex, at: to.row)
         
         defaults.set(countryIndices, forKey: "customCountryIndices")
         
         tableView.reloadData()
-    }
-    
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-    
-    // Implements the slide to delete functionality
-    // Src: https://medium.com/ios-os-x-development/enable-slide-to-delete-in-uitableview-9311653dfe2
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // delete item at indexPath
-            self.customLocations.remove(at: indexPath.row)
-            self.countryIndices!.remove(at: indexPath.row)
-            self.defaults.set(self.countryIndices, forKey: "customCountryIndices")
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-        }
-        
-        return [delete]
     }
 }
