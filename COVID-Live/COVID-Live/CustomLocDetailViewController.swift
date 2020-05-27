@@ -63,6 +63,8 @@ class CustomLocDetailViewController: UIViewController {
         } else {
             newRecovered.text! = "↑ " +  String(country!.NewRecovered) + " (" + String(percentNewRecovered) + "%)"
         }
+        
+        self.navigationItem.title = country!.Country
     }
     
     func parse(json: Data) {
