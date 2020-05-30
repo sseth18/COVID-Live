@@ -28,7 +28,6 @@ class CustomLocationsTableViewController: UITableViewController {
         if let indices = defaults.array(forKey: "customCountryIndices") as! [Int]? {
             countryIndices = indices
             for index in countryIndices! {
-                print(index)
                 customLocations.append(countryData[index])
             }
         }
@@ -39,7 +38,6 @@ class CustomLocationsTableViewController: UITableViewController {
         if let indices = defaults.array(forKey: "customCountryIndices") as! [Int]? {
             countryIndices = indices
             for index in countryIndices! {
-                print(index)
                 customLocations.append(countryData[index])
             }
         }

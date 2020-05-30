@@ -74,7 +74,6 @@ class SearchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var countryIndex = countryData.firstIndex(of: filteredCountries[indexPath.row])
-        print(countryIndex)
         defaults.set(countryIndex, forKey: "selectedCountryIndex")
         performSegue(withIdentifier: "viewSearchDetail", sender: self)
     }

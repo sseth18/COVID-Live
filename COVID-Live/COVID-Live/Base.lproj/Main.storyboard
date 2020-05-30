@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="553-6f-kMA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="553-6f-kMA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -21,7 +21,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JNV-hp-6Um">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="125"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07U-Bb-Ca2">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07U-Bb-Ca2">
                                                 <rect key="frame" x="0.0" y="0.0" width="192" height="125"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <nil key="textColor"/>
@@ -122,9 +122,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="casesStack" destination="JNV-hp-6Um" id="dUx-pQ-o46"/>
+                        <outlet property="deathsStack" destination="Mrb-Rs-AvM" id="JMP-Ra-LKY"/>
                         <outlet property="newCases" destination="zve-qJ-hRH" id="d8v-8m-IYS"/>
                         <outlet property="newDeaths" destination="O9J-m4-hw4" id="Q3C-dX-n43"/>
                         <outlet property="newRecovered" destination="FKc-EZ-OqV" id="xM1-SA-pNo"/>
+                        <outlet property="recoveredStack" destination="B0r-Pw-BHZ" id="C81-w0-2e7"/>
+                        <outlet property="searchButton" destination="smL-aQ-T1O" id="f8Z-sw-Rd8"/>
                         <outlet property="totalCases" destination="b8b-UH-615" id="g6c-hw-2kK"/>
                         <outlet property="totalDeaths" destination="drW-69-lAK" id="Wwo-0q-XJz"/>
                         <outlet property="totalRecovered" destination="ChX-B4-kjc" id="0ls-8z-ymc"/>
@@ -192,7 +196,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NKT-qu-mCT">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="56.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-CG-cy9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-CG-cy9">
                                                 <rect key="frame" x="0.0" y="0.0" width="192" height="56.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <nil key="textColor"/>
@@ -303,9 +307,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="T1F-d8-t67"/>
                     <connections>
+                        <outlet property="casesStack" destination="NKT-qu-mCT" id="2qO-7a-i6L"/>
+                        <outlet property="deathsStack" destination="Crp-m7-KWv" id="3Cq-ln-pho"/>
                         <outlet property="newCases" destination="AgH-lN-qBW" id="P2y-gD-Z7i"/>
                         <outlet property="newDeaths" destination="L8F-AO-jwq" id="EZw-S9-39v"/>
                         <outlet property="newRecovered" destination="Bcy-pt-rrg" id="tiN-QC-8xP"/>
+                        <outlet property="recoveredStack" destination="g5b-8b-jmb" id="QbQ-VA-sKN"/>
                         <outlet property="totalCases" destination="GFE-oE-vHw" id="fNz-wt-lRn"/>
                         <outlet property="totalDeaths" destination="AUI-GP-fG9" id="UUR-DZ-MjV"/>
                         <outlet property="totalRecovered" destination="IDv-v7-bzm" id="xv4-ng-sRz"/>
@@ -329,7 +336,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RRG-2y-zzQ">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="125"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abp-Vz-Bje">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abp-Vz-Bje">
                                                 <rect key="frame" x="0.0" y="0.0" width="192" height="125"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <nil key="textColor"/>
@@ -424,9 +431,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="svg-5E-97N"/>
                     <connections>
+                        <outlet property="casesStack" destination="RRG-2y-zzQ" id="EPj-am-nFJ"/>
+                        <outlet property="deathsStack" destination="xqn-Yv-pov" id="HDC-uc-dI1"/>
                         <outlet property="newCases" destination="nZI-eu-OmD" id="lIm-jL-DtN"/>
                         <outlet property="newDeaths" destination="1O6-fn-I3L" id="eoE-q9-OdE"/>
                         <outlet property="newRecovered" destination="7eJ-FR-Z00" id="dIR-fc-MBB"/>
+                        <outlet property="recoveredStack" destination="Ryu-zG-luD" id="k9h-i0-uAd"/>
                         <outlet property="totalCases" destination="9Mm-uH-Ysb" id="G5E-ie-MDz"/>
                         <outlet property="totalDeaths" destination="9eZ-ua-qWj" id="bes-sU-Oqm"/>
                         <outlet property="totalRecovered" destination="AkD-z2-bH7" id="G6y-IJ-1Kv"/>
@@ -553,7 +563,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xJv-7l-K5j"/>
+        <segue reference="Fh3-qT-iEh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="globe" catalog="system" width="128" height="121"/>

@@ -21,11 +21,22 @@ class GlobalDataViewController: UIViewController {
     @IBOutlet weak var totalRecovered: UILabel!
     @IBOutlet weak var newRecovered: UILabel!
     
+    @IBOutlet weak var casesStack: UIStackView!
+    @IBOutlet weak var deathsStack: UIStackView!
+    @IBOutlet weak var recoveredStack: UIStackView!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         performSelector(inBackground: #selector(fetchJSON), with: nil)
+        
+        casesStack.isAccessibilityElement = true
+        deathsStack.isAccessibilityElement = true
+        recoveredStack.isAccessibilityElement = true
+        
+        searchButton.isAccessibilityElement = true
+        searchButton.accessibilityLabel = "Search Button"
     }
     
     @objc func fetchJSON() {
@@ -51,17 +62,23 @@ class GlobalDataViewController: UIViewController {
         var percentNewCases = 100 * globalCasesData!.NewConfirmed / (globalCasesData!.TotalConfirmed - globalCasesData!.NewConfirmed)
         newCases.text! = "↑ " + String(globalCasesData!.NewConfirmed) + " (" + String(percentNewCases) + "%)"
         
+        casesStack.accessibilityLabel = String(globalCasesData!.TotalConfirmed) + "Cases. Up by " + String(globalCasesData!.NewConfirmed) + " or " + String(percentNewCases) + "%."
+        
         // Deaths data
         totalDeaths.text! = String(globalCasesData!.TotalDeaths)
         
         var percentNewDeaths = 100 * globalCasesData!.NewDeaths / (globalCasesData!.TotalDeaths - globalCasesData!.NewDeaths)
         newDeaths.text! = "↑ " + String(globalCasesData!.NewDeaths) + " (" + String(percentNewDeaths) + "%)"
         
+        deathsStack.accessibilityLabel = String(globalCasesData!.TotalDeaths) + "Deaths. Up by " + String(globalCasesData!.NewDeaths) + " or " + String(percentNewDeaths) + "%."
+        
         // Recovered patients data
         totalRecovered.text! = String(globalCasesData!.TotalRecovered)
         
         var percentNewRecovered = 100 * globalCasesData!.NewRecovered / (globalCasesData!.TotalRecovered - globalCasesData!.NewRecovered)
         newRecovered.text! = "↑ " +  String(globalCasesData!.NewRecovered) + " (" + String(percentNewRecovered) + "%)"
+        
+        recoveredStack.accessibilityLabel = String(globalCasesData!.TotalRecovered) + "Recovered patients. Up by " + String(globalCasesData!.NewRecovered) + " or " + String(percentNewRecovered) + "%."
     }
 
     func parse(json: Data) {

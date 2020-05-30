@@ -23,6 +23,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var totalRecovered: UILabel!
     @IBOutlet weak var newRecovered: UILabel!
     
+    @IBOutlet weak var casesStack: UIStackView!
+    @IBOutlet weak var deathsStack: UIStackView!
+    @IBOutlet weak var recoveredStack: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +34,11 @@ class DetailViewController: UIViewController {
         parse(json: json!)
         countryIndex = defaults.integer(forKey: "selectedCountryIndex")
         country = countryData[countryIndex!]
+        
+        casesStack.isAccessibilityElement = true
+        deathsStack.isAccessibilityElement = true
+        recoveredStack.isAccessibilityElement = true
+        
         populateData()
     }
     
@@ -44,6 +53,8 @@ class DetailViewController: UIViewController {
             newCases.text! = "↑ " + String(country!.NewConfirmed) + " (" + String(percentNewCases) + "%)"
         }
         
+        casesStack.accessibilityLabel = String(country!.TotalConfirmed) + "Cases. Up by " + String(country!.NewConfirmed) + " or " + String(percentNewCases) + "%."
+        
         // Deaths data
         totalDeaths.text! = String(country!.TotalDeaths)
         
@@ -54,6 +65,8 @@ class DetailViewController: UIViewController {
             newDeaths.text! = "↑ " + String(country!.NewDeaths) + " (" + String(percentNewDeaths) + "%)"
         }
         
+        deathsStack.accessibilityLabel = String(country!.TotalDeaths) + "Deaths. Up by " + String(country!.NewDeaths) + " or " + String(percentNewDeaths) + "%."
+        
         // Recovered patients data
         totalRecovered.text! = String(country!.TotalRecovered)
         
@@ -63,6 +76,8 @@ class DetailViewController: UIViewController {
         } else {
             newRecovered.text! = "↑ " +  String(country!.NewRecovered) + " (" + String(percentNewRecovered) + "%)"
         }
+        
+        recoveredStack.accessibilityLabel = String(country!.TotalRecovered) + "Recovered patients. Up by " + String(country!.NewRecovered) + " or " + String(percentNewRecovered) + "%."
         
         self.navigationItem.title = country!.Country
     }
@@ -90,9 +105,6 @@ class DetailViewController: UIViewController {
         }
         
         customLocations!.append(countryIndex!)
-        for i in customLocations! {
-            print(i)
-        }
         defaults.set(customLocations, forKey: "customCountryIndices")
         
         self.navigationController?.popToRootViewController(animated: true)
